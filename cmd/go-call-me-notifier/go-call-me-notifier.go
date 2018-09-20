@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	// check if MacOS 10.9+ and exit with proper output if not
+	// else continue
 	for i := 0; i < 5; i++ {
 		notify2(true)
 		time.Sleep(2 * time.Second)
