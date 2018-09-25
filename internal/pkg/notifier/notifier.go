@@ -6,11 +6,13 @@ import (
 	"github.com/deckarep/gosx-notifier"
 )
 
+// Emergency creates and pushes a new emergency notification
 func Emergency() (bool, error) {
 	notification := new(true)
 	return push(notification)
 }
 
+// NonEmergent creates and pushes a new non-emergent notification
 func NonEmergent() (bool, error) {
 	notification := new(false)
 	return push(notification)
