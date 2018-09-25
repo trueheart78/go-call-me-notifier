@@ -13,8 +13,12 @@ Setup a `~/.go-call-me.json` file with the following values:
 
 ```json
 {
-  "redis_url" : "https://url.to.redis",
-  "redis_password" : "your password"
+  "redis_url" : "https://url.to.redis:port-number",
+  "redis_password" : "your password",
+  "redis_channels" : {
+    "emergency"    : "emergency",
+    "nonemergent"  : "nonemergent"
+  }
 }
 ```
 
