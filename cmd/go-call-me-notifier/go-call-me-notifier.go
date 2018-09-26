@@ -63,6 +63,7 @@ func monitor() {
 	fmt.Printf("Listening on '%v' and '%v'...\n", cfg.RedisChannels.Emergency, cfg.RedisChannels.NonEmergent)
 	// Consume messages.
 	var t time.Time
+	timeFormat := "Jan 2, 2006 at 3:04pm (MST)"
 	for {
 		msg, ok := <-ch
 		if !ok {
@@ -70,7 +71,7 @@ func monitor() {
 		}
 		t = time.Now()
 
-		fmt.Printf("Message received on '%v': %v [%v]\n", msg.Channel, msg.Payload, t.Format("Jan 2, 2006 at 3:04pm (MST)"))
+		fmt.Printf("Message received on '%v': %v [%v]\n", msg.Channel, msg.Payload, t.Format(timeFormat))
 		if msg.Channel == cfg.RedisChannels.Emergency {
 			emergency()
 		} else if msg.Channel == cfg.RedisChannels.NonEmergent {
