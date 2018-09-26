@@ -3,15 +3,22 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"runtime"
 	"time"
 
 	"github.com/go-redis/redis"
 	"github.com/trueheart78/go-call-me-notifier/internal/pkg/config"
 	"github.com/trueheart78/go-call-me-notifier/internal/pkg/notifier"
+	"github.com/trueheart78/go-call-me-notifier/internal/pkg/version"
 )
 
 func init() {
+	if len(os.Args) > 1 && (os.Args[1] == "version" || os.Args[1] == "--version") {
+		fmt.Println(version.Full())
+		os.Exit(0)
+	}
+	clearScreen()
 	if runtime.GOOS != "darwin" {
 		fmt.Printf("Unsupported operating system: %v\n", runtime.GOOS)
 		os.Exit(1)
@@ -90,5 +97,17 @@ func nonemergent() {
 	for i := 0; i < 2; i++ {
 		notifier.NonEmergent()
 		time.Sleep(4 * time.Second)
+	}
+}
+
+func clearScreen() {
+	if runtime.GOOS == "windows" {
+		cmd := exec.Command("cmd", "/c", "cls")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	} else {
+		cmd := exec.Command("clear")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
 	}
 }

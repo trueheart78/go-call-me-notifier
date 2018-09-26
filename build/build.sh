@@ -67,6 +67,7 @@ createRelease() {
 		tar cvzf "$relname.tgz" "$binname"
 	fi
 	cd ..
+	rm -rf out/
 }
 
 createRelease darwin amd64
