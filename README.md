@@ -3,6 +3,8 @@
 Local application that subscribes to the published items from the
 [Go! Call Me (Maybe)!][go call me maybe] lambda.
 
+Download your preferred executable from [the Releases page](releases/) and extract it. That's it!
+
 :warning: Only works on MacOS 10.9+
 
 ![taylor swift][drop everything now]
