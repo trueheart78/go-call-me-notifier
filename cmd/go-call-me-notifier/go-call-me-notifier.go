@@ -11,8 +11,6 @@ import (
 	"github.com/trueheart78/go-call-me-notifier/internal/pkg/notifier"
 )
 
-var cfg *config.Config
-
 func init() {
 	if runtime.GOOS != "darwin" {
 		fmt.Printf("Unsupported operating system: %v\n", runtime.GOOS)
