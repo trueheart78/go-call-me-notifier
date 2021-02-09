@@ -1,5 +1,7 @@
 # Go! Call Me Notifier
 
+**No longer maintained due to workplace restrictions connecting to AWS Redis**
+
 Local application that subscribes to the published items from the
 [Go! Call Me (Maybe)!][go call me maybe] lambda.
 
